@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${Titulo}">Pagina Spring Boot</title>
+</head>
+<body>
+    <h1>Informacion del dueño de la mascota</h1>
+    <ul>
+        <li><strong>ID:</strong> <span th:text="${dueno.idDueno}">1</span></li>
+        <li><strong>Nombre:</strong> <span th:text="${dueno.nombre}">Camilo Penagos</span></li>
+        <li><strong>Teléfono:</strong> <span th:text="${dueno.telefono}">555-1234</span></li>
+        <li><strong>Dirección:</strong> <span th:text="${dueno.direccion}">Calle Falsa 123</span></li>
+    </ul>
+
+</body>
+</html>
