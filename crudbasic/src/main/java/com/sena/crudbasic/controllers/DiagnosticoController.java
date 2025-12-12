@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sena.crudbasic.Model.Mascota;
-import com.sena.crudbasic.dto.MascotaDto;
-import com.sena.crudbasic.service.MascotaService;
+import com.sena.crudbasic.Model.Diagnostico;
+import com.sena.crudbasic.dto.DiagnosticoDto;
+import com.sena.crudbasic.service.DiagnosticoService;
 
 @RestController
-@RequestMapping("/mascotas")
-public class MascotaController {
+@RequestMapping("/diagnosticos")
+public class DiagnosticoController {
 
     @Autowired
-    private MascotaService service;
+    private DiagnosticoService service;
 
     @GetMapping("")
     public ResponseEntity<Object> findAll() {
@@ -31,30 +31,30 @@ public class MascotaController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Object> save(@RequestBody MascotaDto m) {
-        service.save(m);
+    public ResponseEntity<Object> save(@RequestBody DiagnosticoDto d) {
+        service.save(d);
         return new ResponseEntity<Object>(
-                "Mascota guardada correctamente", HttpStatus.OK);
+                "Diagnóstico guardado correctamente", HttpStatus.OK);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Object> findById(@PathVariable int id) {
-        Mascota mascota = service.findById(id);
+        Diagnostico diagnostico = service.findById(id);
         return new ResponseEntity<Object>(
-                mascota, HttpStatus.OK);
+                diagnostico, HttpStatus.OK);
     }
 
-    @GetMapping("filterbynombre/{nombre}")
-    public ResponseEntity<Object> filterByNombre(@PathVariable String nombre) {
-        List<Mascota> mascotas = service.filterByNombre(nombre);
+    @GetMapping("filterbydescripcion/{descripcion}")
+    public ResponseEntity<Object> filterByDescripcion(@PathVariable String descripcion) {
+        List<Diagnostico> diagnosticos = service.filterByDescripcion(descripcion);
         return new ResponseEntity<Object>(
-                mascotas, HttpStatus.OK);
+                diagnosticos, HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> delete(@PathVariable int id) {
         service.delete(id);
         return new ResponseEntity<Object>(
-                "Mascota eliminada correctamente", HttpStatus.OK);
+                "Diagnóstico eliminado correctamente", HttpStatus.OK);
     }
 }
