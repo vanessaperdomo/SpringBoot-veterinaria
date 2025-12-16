@@ -17,7 +17,6 @@ public class VeterinarioDto {
         this.correo = correo;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }

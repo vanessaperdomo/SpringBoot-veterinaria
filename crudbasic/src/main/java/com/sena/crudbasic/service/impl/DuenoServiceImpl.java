@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sena.crudbasic.Model.Dueno;
-import com.sena.crudbasic.dto.DuenoDto;
 import com.sena.crudbasic.repository.DuenoRepository;
+import com.sena.crudbasic.model.Dueno;
+import com.sena.crudbasic.dto.DuenoDto;
 import com.sena.crudbasic.service.DuenoService;
 
 @Service
@@ -27,10 +27,24 @@ public class DuenoServiceImpl implements DuenoService {
     }
 
     @Override
-    public List<Dueno> filterByNombre(String nombre) {
-        return repo.filterByNombre(nombre);
+    public String save(DuenoDto duenoDto) {
+        Dueno dueno = dtoToModel(duenoDto);
+        repo.save(dueno);
+        return "Dueño guardado exitosamente";
     }
 
+    @Override
+    public String delete(int id) {
+        repo.deleteById(id);
+        return "Dueño eliminado correctamente";
+    }
+
+    @Override
+    public List<Dueno> filterByName(String nombre) {
+        return repo.filterByName(nombre);
+    }
+
+    // 🔄 Conversor DTO -> Model
     public Dueno dtoToModel(DuenoDto duenoDto) {
         return new Dueno(
                 duenoDto.getId(),
@@ -39,24 +53,12 @@ public class DuenoServiceImpl implements DuenoService {
                 duenoDto.getDireccion());
     }
 
-    public Dueno modelToDto(Dueno dueno) {
-        return new Dueno(
+    // 🔄 Conversor Model -> DTO
+    public DuenoDto modelToDto(Dueno dueno) {
+        return new DuenoDto(
                 dueno.getId(),
                 dueno.getNombre(),
                 dueno.getTelefono(),
                 dueno.getDireccion());
-    }
-
-    @Override
-    public String save(DuenoDto duenoDto) {
-        Dueno dueno = dtoToModel(duenoDto);
-        repo.save(dueno);
-        return "Dueño guardado correctamente";
-    }
-
-    @Override
-    public String delete(int id) {
-        repo.deleteById(id);
-        return "Dueño eliminado correctamente";
     }
 }

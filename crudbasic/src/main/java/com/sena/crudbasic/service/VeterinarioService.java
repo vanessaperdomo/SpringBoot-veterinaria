@@ -1,17 +1,17 @@
 package com.sena.crudbasic.service;
 
 import java.util.List;
+import com.sena.crudbasic.model.Veterinario;
 import com.sena.crudbasic.dto.VeterinarioDto;
-import com.sena.crudbasic.Model.Veterinario;
 
 public interface VeterinarioService {
 
     /*
-     * findAll
-     * findById
-     * filterByName
-     * save
-     * delete
+     * findAll: buscar todos los veterinarios
+     * findById: buscar veterinario por id
+     * filterByName: filtrar por nombre del veterinario
+     * save: guardar
+     * delete: eliminar
      */
 
     public List<Veterinario> findAll();

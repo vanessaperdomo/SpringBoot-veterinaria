@@ -1,4 +1,4 @@
-package com.sena.crudbasic.Model;
+package com.sena.crudbasic.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -7,6 +7,9 @@ public class DuenoDto {
     private String telefono;
     private String direccion;
 
+    public DuenoDto() {
+    }
+
     public DuenoDto(int id, String nombre, String telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
@@ -14,6 +17,7 @@ public class DuenoDto {
         this.direccion = direccion;
     }
 
+    // Getters y Setters
     public int getId() {
         return id;
     }

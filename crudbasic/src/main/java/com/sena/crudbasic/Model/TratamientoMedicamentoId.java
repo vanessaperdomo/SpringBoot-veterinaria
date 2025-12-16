@@ -1,4 +1,4 @@
-package com.sena.crudbasic.Model;
+package com.sena.crudbasic.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,10 +18,8 @@ public class TratamientoMedicamentoId implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (!(o instanceof TratamientoMedicamentoId))
-            return false;
+        if (this == o) return true;
+        if (!(o instanceof TratamientoMedicamentoId)) return false;
         TratamientoMedicamentoId that = (TratamientoMedicamentoId) o;
         return tratamiento == that.tratamiento && medicamento == that.medicamento;
     }
